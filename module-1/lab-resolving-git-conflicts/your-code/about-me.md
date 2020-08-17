@@ -10,4 +10,8 @@
 # What will I do after the bootcamp?
 * Probably the tech industry
 * I would like to know...
-* Earn my money by doing what I like mostly
+<<<<<<< HEAD
+* Earn my money by doing what I like 
+=======
+* Earn my money by doing what I like
+>>>>>>> charliesket
