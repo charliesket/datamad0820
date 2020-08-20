@@ -7,43 +7,58 @@ my_listComprehension = [1/egg for egg in eggs]
 print(my_listComprehension)
 
 #Insert here the module/library import statements 
+import os 
+import random
 
 
 
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
+x = list(range(1,21))
+square= [i**2 for i in x] 
+print(square)
 
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+x2= list(range(1,51))
+power_of_two= [2**i for i in x2]
+print(power_of_two)
 
 
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
-
+x3=list(range(1,101))
+sqrt=[i**0.5 for i in x3]
+print(sqrt)
 
 
 
 #4. Create this list [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]. Use my_list as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+x4= list(range(-11,-0))
+my_list= [i+1 for i in x4]
+print(my_list)
 
 
 
 #5. Find the odd numbers from 1-100. Use odds as the name of the list. 
 # Remember to use list comprehensions and to print your results
+x5= list(range(0,101))
+odds=[i for i in x5 if i%2 != 0]
+print(odds)
 
 
 
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
+x6= list(range(0,1001))
+divisible_by_seven=[i for i in x6 if i%7 ==0]
+print(divisible_by_seven)
 
 
 
@@ -51,15 +66,20 @@ print(my_listComprehension)
 #7. Remove all of the vowels in a string. Hint: make a list of the non-vowels. Use non_vowels as the name of the list.
 # Remember to use list comprehensions and to print your results
 # You can use the following test string but feel free to modify at your convenience
-
+cons=["fndlthsymcwg"]
 teststring = 'Find all of the words in a string that are monosyllabic'
-
+non_vowels=  "".join([i for i in teststring if i in "Fndlthsymcwg"])
+print(non_vowels)
 
 
 
 #8. Find the capital letters (and not white space) in the sentence 'The Quick Brown Fox Jumped Over The Lazy Dog'. 
 # Use capital_letters as the name of the list.  
 # Remember to use list comprehensions and to print your results
+cap= ["TQBFJOTLD"]
+sen= ["The Quick Brown Fox Jumped Over The Lazy Dog"]
+capital_letters= "".join([i for i in sen if i in cap])
+print(capital_letters)
 
 
 
@@ -67,8 +87,9 @@ teststring = 'Find all of the words in a string that are monosyllabic'
 #9. Find all the consonants in the sentence 'The quick brown fox jumped over the lazy dog'.
 # Use consonants as the name of the list.
 # Remember to use list comprehensions and to print your results.
-
-
+test= 'Find all of the words in a string that are monosyllabic'
+consonants=  "".join([i for i in test if i not in "aeiou"])
+print(consonants)
 
 
 
@@ -77,10 +98,17 @@ teststring = 'Find all of the words in a string that are monosyllabic'
 # Remember to use list comprehensions and to print your results.
 
 
+#files=[x for x in os.walk('datamad0820')
+#print(files)
+
+
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
+ran= [random.sample(range(0,101),10)]
+random_lists= [[i for i in ran],[i for i in ran],[i for i in ran],[i for i in ran]]
+print(random_lists)
 
 
 
@@ -89,24 +117,33 @@ teststring = 'Find all of the words in a string that are monosyllabic'
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
+flatten_list=[e for sub in list_of_lists for e in sub]
+print(flatten_list)
+
 
 
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
 # Remember to use list comprehensions and to print your results.
 
-list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
+list_of_lists2 = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
+
+list_of_lists3= [e for sub in list_of_lists2 for e in sub]
+floats = [float(i) for i in list_of_lists3 ]
+print(floats)
 
 
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
-
-for i in ['a','b','c']:
-    print i**2
+try:
+    for i in ['a','b','c']:
+        print(i**2)
+except:
+    print ("No puedes hacer el cuadrado de una letra, Burro!!")
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
@@ -116,7 +153,10 @@ for i in ['a','b','c']:
 x = 5
 y = 0
 
-z = x/y
+try:
+    z = x/y
+except: ZeroDivisionError
+print("¿Entonces crees que se puede dividir entre 0 no? PUES NO")
 
 
 
@@ -125,31 +165,53 @@ z = x/y
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except IndexError:
+    print("El índice que has proporcionado está fuera de rango")
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
+def division (a,b):
+    try:
+        return a/b
+    except TypeError:
+        print("El argumento que has proporcionado debe ser int o float")
+    except ZeroDivisionError:
+         print("El argumento b no puede ser 0")
+
+division(1,"a")
+print(division)
+
 
 
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print("The file doesnt exist!")
 
-f = open('testfile','r')
-f.write('Test write this')
 
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-fp = open('myfile.txt')
+try:
+    fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
+except NameError:
+    print("Name is not defined")
+except FileNotFoundError:
+    print("The file you specified doesn´t exist")
+
 
 
 
@@ -171,12 +233,29 @@ def linux_interaction():
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
+'''
+def integerr (z):
+    while  
+try:
+    return z**2
+except:
+    int(z)
+else: 
+    break
+    print("Your variable must be a number")
+
+print(integerr(4))
+
 
 
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
+sd= ["2","3","4","5","6","7","8","9"]
+x10= list(range(0,1001))
+results= [i for i in x10 if i % sd ==0]
+print(results)
 
 
 
@@ -188,4 +267,12 @@ def linux_interaction():
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
+def college ():
+    Total_Marks = int(input("Enter Total Marks Scored: ")) 
+    Num_of_Sections = int(input("Enter Num of Sections: "))
 
+try:
+    college
+except ValueError:
+    print("Algo ha ido mal, comprueba que los valores introducidos son numéricos")
+'''
