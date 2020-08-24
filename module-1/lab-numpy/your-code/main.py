@@ -77,11 +77,12 @@ print(d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-f = np.empty((4,3,5))
+f = np.empty((2,3,5))
 print(f)
 
-"""
 
+
+"""
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
@@ -89,15 +90,32 @@ Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
+"""
 
-for x in d:
-        if x > d_min:
-                return 25 in x from f
+d1 = list(d)
+f2 = list(f)
+
+
+for x in d1:
+        if d_mean < x > d_min:
+                f2.replace(x,25) 
+        if d_max > x > d_mean:
+                f2.replace(x,75) 
+        if x == d_mean:
+                f2.replace(x,50)
+        if x == d_min:
+                f2.replace(x,0)
+        if x == d_max:
+                f2.replace(x,100)
+
+print(f2)
+     
+        
                 
                 
 
 
-
+"""
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
@@ -116,10 +134,10 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
        [[ 25.,  25.,  25.,  25., 100.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
-"""
 
 
-"""
+
+
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
@@ -130,5 +148,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'D',  'D',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
-
 """
