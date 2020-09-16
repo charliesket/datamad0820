@@ -28,3 +28,6 @@ def my_function(X):
 X = input("What is the maximal length of the triangle side? Enter a number: ")
 
 print("The longest side possible is " + str(my_function(int(X))))
+   
+# No consigo hacerlo más eficiente, he intentado list comprehensions para no tener tantos for loops, y no hay manera.
+# Entiendo lo que hace la función y lo que devuelve, pero no consigo pensar como hacerlo de manera más eficiente o rápida.
